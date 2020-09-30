@@ -5,13 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <titlE>mETagAmER</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 </head>
 
 <body>
-    <button>Click the button.</button>
+    <div>
+        <h1>What kind of story do you want to tell?</h1>
+            <input type="checkbox" id="charlie-sheen">
+            <label>A restful Charlie Sheen tale.</label>
+            <br>
+            <input type="checkbox" id="norm-macdonald">
+            <label>A 1920's Norm MacDonald lengthy comedy.</label>
+            <br>
+            <input type="checkbox" id="gwyneth-patrow">
+            <label>A Gwyneth Paltrow morality tale.</label>
+            <br>
+            <input type="checkbox" id="katherine-heigl">
+            <label>A Katherine Heigl fall-from-grace tragedy.</label>
+            <br>
+    </div>
+    <div>
+        <h1>How many characters do you want in your story</h1>
+            <select id="character-query">
+                <option value="3">I am spartan like Earnest Hemmingway. 3 characters, at most.</option>
+                <option value="4">The protaganist, the friend, the love-interest and the villain. The "Shrek" option.</option>
+                <option value="8">I am a maniac like Thomas Pynchon. Sky's the limit!</option>
+            </select>
+    </div>
+    <div>
+        <h1>Do you need a location for your story, or do you already have one in mind?</h1>
+            <input type="checkbox" id="map-query">
+                <label for="map-query">Yes, I want to have a place for my story to take place</label>
+    </div>
 
-    <p id="release"></p>
-    <div id = "genre"></div>
+    <div>
+        <button class="button">Get your story elements!</button>
+    </div>
+
+    <div id="display-quote">
+
+    </div>
+    <div id="display-characters">
+
+    </div>
+    <div id="display-map">
+
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;></script>
     <script src="script.js"></script>
 </body>
