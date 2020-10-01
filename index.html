@@ -1,57 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <titlE>mETagAmER</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <titlE>StoryFinder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <div>
-        <h1>What kind of story do you want to tell?</h1>
-            <input type="checkbox" id="charlie-sheen">
-            <label>A restful Charlie Sheen tale.</label>
-            <br>
-            <input type="checkbox" id="norm-macdonald">
-            <label>A 1920's Norm MacDonald lengthy comedy.</label>
-            <br>
-            <input type="checkbox" id="gwyneth-patrow">
-            <label>A Gwyneth Paltrow morality tale.</label>
-            <br>
-            <input type="checkbox" id="katherine-heigl">
-            <label>A Katherine Heigl fall-from-grace tragedy.</label>
-            <br>
-    </div>
-    <div>
-        <h1>How many characters do you want in your story</h1>
-            <select id="character-query">
-                <option value="3">I am spartan like Earnest Hemmingway. 3 characters, at most.</option>
-                <option value="4">The protaganist, the friend, the love-interest and the villain. The "Shrek" option.</option>
-                <option value="8">I am a maniac like Thomas Pynchon. Sky's the limit!</option>
-            </select>
-    </div>
-    <div>
-        <h1>Do you need a location for your story, or do you already have one in mind?</h1>
-            <input type="checkbox" id="map-query">
+
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            StoryFinder
+        </div>
+    </nav>
+
+    <figure class="image is-fullwidth is-3by1 pb-4">
+        <img id="main" src="assets/animals-2739386_1920.jpg">
+    </figure>
+
+    <div class="container">
+
+        <div>
+            <h1>What kind of story do you want to tell?</h1>
+            <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-suare">
+                                <img src="assets/restful.jpg" alt="Cabin in the woods">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                A restful Charlie Sheen tale.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="assets/comedy.jpg" alt="Mic on stage">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                A 1920's Norm MacDonald lengthy comedy.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="assets/morality_tale.jpg" alt="Crossroads">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                A Gwyneth Paltrow morality tale.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="assets/tragedy.jpg" alt="Candles in a row">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                A Katherine Heigl fall-from-grace tragedy.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+<br>
+<br>
+
+        <div>
+            <h1>How many characters do you want in your story</h1>
+            <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                <div class="column">
+                    <div class="card ">
+                        <div class="card-image">
+                            <figure class="image is-suare">
+                                <img src="assets/threePeople.jpg" alt="Three people">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                I am spartan like Earnest Hemmingway. 3 characters, at most.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card ">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="assets\shrekish.jpg" alt="Four People">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                The protaganist, the friend, the love-interest and the villain. The "Shrek" option.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card ">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="assets/crowd.jpg" alt="Crowd">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                I am a maniac like Thomas Pynchon. Sky's the limit!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1>Do you need a location for your story, or do you already have one in mind?</h1>
+                <input type="checkbox" id="map-query">
                 <label for="map-query">Yes, I want to have a place for my story to take place</label>
-    </div>
+            </div>
 
-    <div>
-        <button class="button">Get your story elements!</button>
-    </div>
+            <div>
+                <button class="button">Get your story elements!</button>
+            </div>
 
-    <div id="display-quote">
+            <div id="display-quote">
 
-    </div>
-    <div id="display-characters">
+            </div>
+            <div id="display-characters">
 
-    </div>
-    <div id="display-map">
+            </div>
+            <div id="display-map">
 
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;></script>
-    <script src="script.js"></script>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" &gt;&lt;></script>
+            <script src="script.js"></script>
 </body>
+
 </html>
