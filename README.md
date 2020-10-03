@@ -1,2 +1,2 @@
 # Project-1
-A good source for upcoming video games!
+A place to get started on a new potboiler recipe!
