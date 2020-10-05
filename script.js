@@ -19,7 +19,6 @@ $(document).ready(function () {
           this.value = this.value.replace(/\s/g, "");
         }
       });
-
       $("input#main-word").on({
         keydown: function(e) {
           if (e.which === 32)
@@ -54,6 +53,11 @@ $(document).ready(function () {
         $("#final-story").delay(1000).fadeIn(1000)
         getWords()
     })
+    
+    $("#restart").on("click", function() {
+        $("#modal").removeClass("is-active")
+    })
+
 
 //define function for the first line of dialogue
 function getQuote() {
@@ -153,18 +157,23 @@ function getQuote() {
             method: "GET",
             success: function (results) {
                 console.log(results)
-                let random = Math.floor(Math.random() * results.length)
-                speaking = results[random].word
+                let random = Math.ceil(Math.random() * results.length)
+                speaking = results[random+1].word
                 console.log("speaking: " + speaking)
                 storyFinal()
             }
         })
 
     }
+
+function activateModal() {
+    $("#modal").addClass("is-active")
+    $("#modal").fadeIn(500)
+}
 //final function for display
 function storyFinal() {
-    if(adj1, adv, setting, main, verb, speaking === undefined) {
-        // modal goes here
+    if(speaking == undefined || null) {
+        activateModal()
     }
     else {
     let p = $("<p style='font-style:italic;'>").text("In "+ adj1+ " " + setting + ", "  + main + " " + verb + "s. " 
