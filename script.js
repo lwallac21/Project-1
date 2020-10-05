@@ -107,7 +107,7 @@ $(document).ready(function () {
     function getWords() {
 
         $.ajax({
-            url: "https://api.datamuse.com/words?rel_jjb=" + $("#main-word").val(),
+            url: "https://api.datamuse.com/words?rel_jjb=" + $("#main-word").val()+"&mbp=adj",
             method: "GET",
             success: function (results) {
                 console.log(results)
@@ -139,7 +139,7 @@ $(document).ready(function () {
             }
         })
         $.ajax({
-            url: "https://api.datamuse.com/words?ml=" + $("#story-word").val()+"&mdp=adv"+"&sp=*y",
+            url: "https://api.datamuse.com/words?ml=" + $("#story-word").val()+"&mdp=adv"+"&sp=*ly",
             method: "GET",
             success: function(results) {
                 console.log(results)
@@ -154,15 +154,21 @@ $(document).ready(function () {
 
     }
 function storyFinal() {
-    let p = $("<p>").text("In "+ adj1+ " " + setting + ", "  + main + " " + verb + "s. " 
+    let p = $("<p style='font-style:italic;'>").text("In "+ adj1+ " " + setting + ", "  + main + " " + verb + "s. " 
     + main+ " " + "is " + adv + " "+ "talking to " + side + "."
     )
-    let p1 = $("<p>").text(displayQuote)
-    let p2 = $("<span style='font-weight: bold;>").text(main + ": " )
+    let p1 = $("<p >").text(displayQuote)
+    let p2 = $("<p id='speaker'>").text(main + ": " )
     $("#scene").append(p)
     console.log(p)
-    $("#opening-line").append(p2, p1)
+    $("#opening-line").append(p1)
+    $("#opening-line").prepend(p2)
+    $("#speaker").css("font-weight, bold")
+    $("#speaker").addClass("quoteFont")
         }
+    $("#get-writing").text("What does " + side + " do next? What literary shenanigans follow? Indeed, what are the rest of the characters doing? Get writing to find out!"
+    );
+    $("get-writing").delay(5000).fadeIn(1000);
 });
 // getCharacter()
 // $.ajax({

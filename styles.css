@@ -2,3 +2,10 @@
     align-items: center;
 };
 
+.quoteFont {
+    font: "Lucida Console", Courier, monospace
+};
+
+.final{
+    font-size: larger;
+}
