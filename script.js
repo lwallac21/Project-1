@@ -1,18 +1,10 @@
 $(document).ready(function () {
     console.log("ready!");
 
-    // const mainWord = $("#main-word")
-    // const storyWord = $("#story-word")
-    // const getStory = $("#story-btn")
-    let country;
-    // let charNumber;
+    let speaking;
     let selectedAuthor;
-    // let setting;
-    // let displayMainWord;
-    // let displayStoryWord;
     let verb;
     let adj1
-    let adj2
     let adv
     let displayQuote;
     let main;
@@ -64,9 +56,6 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
 
-                // charDiv.append('<h1 id="dramatis-personae">')
-                // $("#dramatis-personae").text("Dramatis Personae:")
-
                 console.log(data)
 
                 let response = data
@@ -92,105 +81,73 @@ $(document).ready(function () {
         })
     };
 
-    // function getStory() {
-    //     let p = $("<p>")
-    //     let b = $("<br>")
-    //     $("#Story-Block").append($("<h2>").text("Dramatis Personae"))
-    //     $("#Story-Block").append($(b + "<hr>" + b))
-    //     $("#Story-Block").append(p.text("In " + adj1 + " " + setting + ", " + main + " " + adv1 + " " + "stands."))
-    //     $("#Story-Block").append(p.text(name[0].first + ": " + quote))
-    //     $("#Story-Block").append(p.text("What does " + name[1] + "think? What happens next? Finish your story!"))
-    // }
-
-
 
     function getWords() {
 
         $.ajax({
-            url: "https://api.datamuse.com/words?rel_jjb=" + $("#main-word").val()+"&mbp=adj",
+            "async": false,
+            "crossDomain": true,
+            url: "https://api.datamuse.com/words?ml=" + $("#story-word").val()+"&mdp=adj",
             method: "GET",
             success: function (results) {
                 console.log(results)
-                let random = Math.floor(Math.random() * results.length)
+                let random = Math.floor(Math.random() * 3)
                 adj1 = results[random].word
                 console.log("adj 1: " + adj1)
             }
         });
 
         $.ajax({
-            url: "https://api.datamuse.com/words?rel_jjb=" + $("#story-word").val(),
+            "async": false,
+            "crossDomain": true,
+            url: "https://api.datamuse.com/words?rel_syn=think&mdp=v",
             method: "GET",
             success: function (results) {
                 console.log(results)
-                let random = Math.floor(Math.random() * results.length)
-                adj2 = results[random].word
-                console.log("adj 2: "+adj2)
-            }
-        })
-
-        $.ajax({
-            url: "https://api.datamuse.com/words?rel_syn=think&p=v",
-            method: "GET",
-            success: function (results) {
-                console.log(results)
-                let random = Math.floor(Math.random() * results.length)
+                let random = Math.floor(Math.random() * 3)
                 verb = results[random].word
                 console.log("verb: " + verb)
             }
         })
         $.ajax({
-            url: "https://api.datamuse.com/words?ml=" + $("#story-word").val()+"&mdp=adv"+"&sp=*ly",
+            "async": false,
+            "crossDomain": true,
+            url: "https://api.datamuse.com/words?ml=" + $("#main-word").val()+"&mdp=adv"+"&sp=*ly",
             method: "GET",
             success: function(results) {
                 console.log(results)
-                console.log("story-word value: " + $("#story-word").val())
-                let random = Math.floor(Math.random() * results.length)
-                adv = results[random].word
+                adv = results[0].word
                 console.log("adverb: " + adv)
-                storyFinal()
             }
             
+        })
+        $.ajax({
+            "async": false,
+            "crossDomain": true,
+            url: "https://api.datamuse.com/words?ml=speak&sp=*ing",
+            method: "GET",
+            success: function (results) {
+                console.log(results)
+                let random = Math.floor(Math.random() * 14)
+                speaking = results[random].word
+                console.log("speaking: " + speaking)
+                storyFinal()
+            }
         })
 
     }
 function storyFinal() {
     let p = $("<p style='font-style:italic;'>").text("In "+ adj1+ " " + setting + ", "  + main + " " + verb + "s. " 
-    + main+ " " + "is " + adv + " "+ "talking to " + side + "."
+    + main+ " " + "is " + adv + " "+ speaking + " to " + side + "."
     )
-    let p1 = $("<p >").text(displayQuote)
-    let p2 = $("<p id='speaker'>").text(main + ": " )
+    let p1 = $("<p class='quoteFont'>").text(displayQuote)
+    let p2 = $("<p id='speaker' style='font-weight: bold;'>").text(main + ": " )
     $("#scene").append(p)
     console.log(p)
     $("#opening-line").append(p1)
-    $("#opening-line").prepend(p2)
-    $("#speaker").css("font-weight, bold")
-    $("#speaker").addClass("quoteFont")
-        }
-    $("#get-writing").text("What does " + side + " do next? What literary shenanigans follow? Indeed, what are the rest of the characters doing? Get writing to find out!"
+    $("#opening-line").prepend(p2)    
+    $("#get-writing").append("What does " + side + " do next? What literary shenanigans follow? Indeed, what are the rest of the characters doing? Get writing to find out!"
     );
-    $("get-writing").delay(5000).fadeIn(1000);
+    $("#end").delay(5000).fadeIn(1000);
+}
 });
-// getCharacter()
-// $.ajax({
-//     url: 'https://randomuser.me/api/?results=' + charNumber,
-//     dataType: 'json',
-//     success: function (data) {
-//         charDiv.append('<h1 id="dramatis-personae">')
-//         $("#dramatis-personae").text("Dramatis Personae:")
-//         console.log(data)
-//         let response = data
-//         let length = response.results.length
-//         let randomIndex = Math.floor(Math.random() * length)
-//         setting = response.results[randomIndex].location.city + ' ' + response.results[randomIndex].location.country
-//         for (i = 0; i < length; i++) {
-//             let name = response.results[i].name.first;
-//             let age = response.results[i].dob.age
-//             let from = response.results[i].location.state
-//             let country = response.results[i].location.country
-//             console.log(name)
-//             let p = $("<p>").text(name + " aged: " + age + " from " + from + ", " + country);
-//             charDiv.append(p);
-//         }
-//         console.log(setting)
-//     }
-// });
