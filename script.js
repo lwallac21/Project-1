@@ -149,7 +149,7 @@ function getQuote() {
         $.ajax({
             "async": false,
             "crossDomain": true,
-            url: "https://api.datamuse.com/words?ml=speak&sp=*ing",
+            url: "https://api.datamuse.com/words?ml=talk&mdp=v&sp=*ing",
             method: "GET",
             success: function (results) {
                 console.log(results)
@@ -163,6 +163,10 @@ function getQuote() {
     }
 //final function for display
 function storyFinal() {
+    if(adj1, adv, setting, main, verb, speaking === undefined) {
+        // modal goes here
+    }
+    else {
     let p = $("<p style='font-style:italic;'>").text("In "+ adj1+ " " + setting + ", "  + main + " " + verb + "s. " 
     + main+ " " + "is " + adv + " "+ speaking + " to " + side + "."
     )
@@ -175,7 +179,7 @@ function storyFinal() {
     $("#get-writing").append("What does " + side + " do next? What literary shenanigans follow? Indeed, what are the rest of the characters doing? Get writing to find out!"
     );
     $("#end").delay(5000).fadeIn(1000);
-}
+}}
 });
 
 
