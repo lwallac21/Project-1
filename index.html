@@ -26,13 +26,13 @@
 
     <div class="container">
 
-        <div>
+        <div id="question-one">
             <h1>What kind of story do you want to tell?</h1>
             <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
                 <div class="column">
-                    <div class="card">
+                    <div class="card quote" data-author="Charlie%20Sheen">
                         <div class="card-image">
-                            <figure class="image is-suare">
+                            <figure class="image is-square">
                                 <img src="assets/restful.jpg" alt="Cabin in the woods">
                             </figure>
                         </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card">
+                    <div class="card quote" data-author="Norm%20MacDonald">
                         <div class="card-image">
                             <figure class="image is-square">
                                 <img src="assets/comedy.jpg" alt="Mic on stage">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card">
+                    <div class="card quote" data-author="Gwyneth%20Paltrow">
                         <div class="card-image">
                             <figure class="image is-square">
                                 <img src="assets/morality_tale.jpg" alt="Crossroads">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card">
+                    <div class="card quote" data-author="Katherine%20Heigl">
                         <div class="card-image">
                             <figure class="image is-square">
                                 <img src="assets/tragedy.jpg" alt="Candles in a row">
@@ -89,13 +89,13 @@
         </div>
 
 
-        <div>
+        <div id="question-two" style="display: none;">
             <h1>How many characters do you want in your story</h1>
             <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
                 <div class="column">
-                    <div class="card ">
+                    <div class="card num" data-number="3">
                         <div class="card-image">
-                            <figure class="image is-suare">
+                            <figure class="image is-square">
                                 <img src="assets/threePeople.jpg" alt="Three people">
                             </figure>
                         </div>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card ">
+                    <div class="card num" data-number="4">
                         <div class="card-image">
                             <figure class="image is-square">
                                 <img src="assets\shrekish.jpg" alt="Four People">
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card ">
+                    <div class="card num" data-number="8">
                         <div class="card-image">
                             <figure class="image is-square">
                                 <img src="assets/crowd.jpg" alt="Crowd">
@@ -135,46 +135,102 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <h1>Do you need a location for your story, or do you already have one in mind?</h1>
-                <div class="field">
-                    <label class="label">One word to describe the main character.</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="e.g Courageous">
-                    </div>
+        </div>
+        <div id="question-three" style="display: none;">
+            <div class="field">
+                <label class="label">One word to describe the main character.</label>
+                <div class="control">
+                    <input id="main-word" class="input" type="text" placeholder="e.g Courageous">
                 </div>
-                <div class="field">
-                    <label class="label">One word to describe the main character.</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="e.g Classic">
-                    </div>
+            </div>
+            <div class="field">
+                <label class="label">One word to describe the main character.</label>
+                <div class="control">
+                    <input id="story-word" class="input" type="text" placeholder="e.g Classic">
                 </div>
-                <div class="field is-grouped">
-                    <p class="control">
-                      <a class="button is-primary">
+            </div>
+            <div class="field is-grouped">
+                <p class="control">
+                    <a id="go-back" class="button is-primary">
                         Go Back
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-primary">
+                    </a>
+                </p>
+                <p class="control">
+                    <a id="story-btn" class="button is-primary">
                         Get my story elements
-                      </a>
-                    </p>
-                  </div>
+                    </a>
+                </p>
             </div>
-
-
-            <div id="display-quote">
-
+        </div>
+        <div id="final-story"class="columns mx-1" style="display: none;">
+            <div class="column">
+                <div class="columns">
+                    <div class="column ">
+                        <div class="card">
+                            <header class="card-header has-background-info has-text-centered">
+                                <h1 class="title">Characters Details</h1>
+                            </header>
+                            <div>
+                                <div class="card-content">
+                                    <div id="dramatis-personae" class="content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <header class="card-header has-background-info has-text-centered">
+                                <h1 class="title">Story Details</h1>
+                            </header>
+                            <div>
+                                <div class="card-content">
+                                    <div id="scene" class="content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card ">
+                        <header class="card-header has-background-primary has-text-centered">
+                            <h1 class="title">Story Block</h1>
+                        </header>
+                        <div id="story-block">
+                            <div class="card-content">
+                                <div id="opening-line" class="content">
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="display-characters">
-
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section class="hero is-dark">
+            <div class="hero-body">
+                <div class="containter">
+                    <div class="content has-text-centered ">
+                        <p>
+                            <strong>StoryFinder</strong>
+                            Copyright © 2020 Group 5 All Rights Reserved
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div id="display-map">
+        </section>
 
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" &gt;&lt;></script>
-            <script src="script.js"></script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" &gt;&lt;></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
