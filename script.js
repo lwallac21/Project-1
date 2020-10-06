@@ -48,16 +48,29 @@ $(document).ready(function () {
     })
 
     $("#story-btn").on("click", function () {
-        $("#question-three").fadeOut(1000)
-        $("story-btn").fadeOut(1000)
-        $("#final-story").delay(1000).fadeIn(1000)
+        if ($("#main-word").val() == ""|| $("#story-word").val() == "") {
+            $("#required").addClass("is-active")
+            $("#required").fadeIn(500)
+        } else{
+            $("#question-three").fadeOut(1000)
+            $("#story-btn").fadeOut(1000)
+            $("#final-story").delay(1000).fadeIn(1000)
         getWords()
+        }  
     })
     
+
+    $("#validation").on("click", function() {
+        $("#required").removeClass("is-active")
+        console.log("click")
+    })
+
+
     $("#restart").on("click", function() {
         $("#modal").removeClass("is-active")
     })
 
+    
 
 //define function for the first line of dialogue
 function getQuote() {
